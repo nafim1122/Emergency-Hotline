@@ -213,9 +213,10 @@ body {
     box-shadow: none;
 }
 
+/* Emergency Cards Grid Layout */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Desktop: 3-column layout (1200px+) */
     gap: 1.5rem;
 }
 
@@ -432,14 +433,15 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+/* Tablet: 768px-1199px (2-column card grid) */
+@media (max-width: 1199px) {
     .main-container {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
     .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2-column layout */
     }
     
     .history-section {
@@ -453,6 +455,7 @@ body {
     }
 }
 
+/* Mobile: Below 768px (single column layout) */
 @media (max-width: 768px) {
     .nav-container {
         padding: 0 1rem;
@@ -492,7 +495,7 @@ body {
     }
     
     .cards-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Mobile: Single column layout */
         gap: 1rem;
     }
     
@@ -526,6 +529,7 @@ body {
     }
 }
 
+/* Small Mobile: Below 480px (optimized for small screens) */
 @media (max-width: 480px) {
     .nav-container {
         flex-direction: column;

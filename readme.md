@@ -1,6 +1,10 @@
-# Emergency Hotline - জরুরি হটলাইন
+# Emergency Hotline - জরুরি হটলাইন 🇧🇩
 
-A responsive web application providing quick access to emergency services in Bangladesh with interactive features for calling, copying numbers, and maintaining call history.
+A responsive web application providing quick access to official Bangladesh government emergency services with interactive features for calling, copying numbers, and maintaining call history. Features the official Bangladesh government logo and branding.
+
+## 🏛️ Government Official
+
+This emergency hotline application uses the **official Bangladesh Government logo** and provides access to **official government emergency services** as recognized by the Government of the People's Republic of Bangladesh.
 
 ## � Live Demo
 
@@ -227,6 +231,7 @@ Emergency-Hotline/
 └── assets/             # Images and icons
     ├── ambulance.png
     ├── Bangladesh-Railway.png
+    ├── bangladesh-gov-logo.png  # Official Bangladesh Government Logo
     ├── brac.png
     ├── coin.png
     ├── emergency.png
@@ -255,7 +260,7 @@ Emergency-Hotline/
 ## 📱 Responsive Breakpoints
 
 - **Desktop**: 1200px+ (3-column card grid)
-- **Tablet**: 768px-1199px (2-column card grid)
+- **Tablet**: 768px-1199px (2-column card grid)  
 - **Mobile**: Below 768px (single column layout)
 - **Small Mobile**: Below 480px (optimized for small screens)
 
