@@ -1,59 +1,83 @@
-// Emergency services data
+// Emergency services data based on Figma design
 const emergencyServices = [
     {
         id: 1,
-        name: "জাতীয় জরুরি সেবা",
-        nameEn: "National Emergency Service",
+        name: "National Emergency Number",
+        nameEn: "National Emergency",
         number: "999",
-        category: "জরুরি সেবা",
+        category: "All",
         icon: "assets/emergency.png"
     },
     {
         id: 2,
-        name: "পুলিশ",
+        name: "Police Helpline Number",
         nameEn: "Police",
-        number: "100",
-        category: "আইন শৃঙ্খলা",
+        number: "999",
+        category: "Police",
         icon: "assets/police.png"
     },
     {
         id: 3,
-        name: "ফায়ার সার্ভিস",
+        name: "Fire Service Number",
         nameEn: "Fire Service",
-        number: "101",
-        category: "দমকল বাহিনী",
+        number: "999",
+        category: "Fire",
         icon: "assets/fire-service.png"
     },
     {
         id: 4,
-        name: "অ্যাম্বুলেন্স সেবা",
-        nameEn: "Ambulance Service",
-        number: "102",
-        category: "স্বাস্থ্য সেবা",
+        name: "Ambulance Service",
+        nameEn: "Ambulance",
+        number: "1994-999999",
+        category: "Health",
         icon: "assets/ambulance.png"
     },
     {
         id: 5,
-        name: "রেলওয়ে পুলিশ",
-        nameEn: "Railway Police",
-        number: "1717",
-        category: "রেল নিরাপত্তা",
-        icon: "assets/Bangladesh-Railway.png"
+        name: "Women & Child Helpline",
+        nameEn: "Women & Child Helpline",
+        number: "109",
+        category: "Help",
+        icon: "assets/emergency.png"
     },
     {
         id: 6,
-        name: "ব্র্যাক জরুরি সেবা",
-        nameEn: "BRAC Emergency",
-        number: "16263",
-        category: "এনজিও সেবা",
+        name: "Anti-Corruption Helpline",
+        nameEn: "Anti-Corruption",
+        number: "106",
+        category: "Govt.",
+        icon: "assets/emergency.png"
+    },
+    {
+        id: 7,
+        name: "Electricity Helpline",
+        nameEn: "Electricity Outage",
+        number: "16216",
+        category: "Electricity",
+        icon: "assets/emergency.png"
+    },
+    {
+        id: 8,
+        name: "Brac Helpline",
+        nameEn: "Brac",
+        number: "16445",
+        category: "NGO",
         icon: "assets/brac.png"
+    },
+    {
+        id: 9,
+        name: "Bangladesh Railway Helpline",
+        nameEn: "Bangladesh Railway",
+        number: "163",
+        category: "Travel",
+        icon: "assets/Bangladesh-Railway.png"
     }
 ];
 
 // Global variables
 let heartCount = 0;
 let coinCount = 100;
-let copyCount = 0;
+let copyCount = 2; // Starting with 2 as shown in design
 let callHistory = [];
 
 // DOM elements
@@ -88,7 +112,7 @@ function createEmergencyCard(service) {
     card.innerHTML = `
         <div class="card-header">
             <img src="${service.icon}" alt="${service.name}" class="card-icon">
-            <img src="assets/heart.png" alt="Heart" class="heart-icon" data-service-id="${service.id}">
+            <i class="fas fa-heart heart-icon" data-service-id="${service.id}"></i>
         </div>
         <div class="card-content">
             <h3>${service.name}</h3>
@@ -98,7 +122,7 @@ function createEmergencyCard(service) {
         </div>
         <div class="card-buttons">
             <button class="card-button copy-btn" data-service-id="${service.id}">
-                <i class="fas fa-copy"></i>
+                <i class="far fa-copy"></i>
                 Copy
             </button>
             <button class="card-button call-btn" data-service-id="${service.id}">
