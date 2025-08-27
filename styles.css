@@ -29,6 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    transition: all 0.3s ease;
 }
 
 .nav-left {
@@ -41,12 +42,22 @@ body {
     width: 32px;
     height: 32px;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .website-name {
     color: #333;
     font-size: 1.2rem;
     font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.website-name:hover {
+    color: #00b894;
 }
 
 .nav-right {
@@ -62,17 +73,32 @@ body {
     color: #333;
     font-weight: 500;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: translateY(-1px);
 }
 
 .heart-counter {
     color: #ff4757;
     font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.heart-counter:hover {
+    color: #ff3838;
 }
 
 .nav-icon {
     width: 20px;
     height: 20px;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.nav-icon:hover {
+    transform: rotate(360deg);
 }
 
 .copy-counter {
@@ -81,23 +107,48 @@ body {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.copy-counter:hover {
+    background: #00a085;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 184, 148, 0.3);
 }
 
 /* Hero Section */
 .hero-section {
-    background: #1a5d1a;
+    background: linear-gradient(135deg, #1a5d1a 0%, #2d5a27 50%, #1a5d1a 100%);
     padding: 3rem 2rem;
     text-align: center;
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
 }
 
 .hero-content {
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
 }
 
 .bangladesh-emblem {
     margin-bottom: 2rem;
+    animation: pulse 2s infinite;
 }
 
 .hero-logo {
@@ -109,6 +160,11 @@ body {
     padding: 1rem;
     border: 3px solid #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05) rotate(5deg);
 }
 
 .hero-title-bangla {
@@ -119,6 +175,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
     letter-spacing: 0.5px;
+    animation: slideInDown 1s ease-out 0.2s both;
 }
 
 .hero-subtitle {
@@ -129,6 +186,7 @@ body {
     margin: 0 auto;
     font-weight: 400;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    animation: slideInUp 1s ease-out 0.4s both;
 }
 
 /* Main Section */
@@ -386,22 +444,35 @@ body {
     
     .history-section {
         position: static;
+        max-width: none;
+        margin: 0 auto;
+    }
+    
+    .nav-container {
+        padding: 0 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .nav-container {
         padding: 0 1rem;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .website-name {
-        font-size: 1rem;
     }
     
     .nav-right {
         gap: 1rem;
+    }
+    
+    .nav-item {
+        font-size: 0.8rem;
+    }
+    
+    .copy-counter {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .website-name {
+        font-size: 1rem;
     }
     
     .hero-section {
@@ -429,12 +500,43 @@ body {
         padding: 1rem;
     }
     
+    .card-content h3 {
+        font-size: 1rem;
+    }
+    
+    .card-content .phone-number {
+        font-size: 1.3rem;
+    }
+    
     .history-section {
         padding: 1rem;
+    }
+    
+    .history-header {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .clear-history-btn {
+        align-self: center;
+        width: fit-content;
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 480px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-left, .nav-right {
+        justify-content: center;
+    }
+    
     .hero-logo {
         width: 70px;
         height: 70px;
@@ -453,10 +555,18 @@ body {
         gap: 0.5rem;
     }
     
-    .history-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: stretch;
+    .card-button {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .emergency-card {
+        padding: 0.8rem;
+    }
+    
+    .card-icon {
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -479,4 +589,48 @@ body {
 
 .pulse-animation {
     animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

@@ -304,30 +304,74 @@ function clearCallHistory() {
     }
 }
 
-// Update counter displays
+// Update counter displays with animations
 function updateCounters() {
-    heartCountElement.textContent = heartCount;
-    coinCountElement.textContent = coinCount;
-    copyCountElement.textContent = copyCount;
+    const heartCountElement = document.getElementById('heartCount');
+    const coinCountElement = document.getElementById('coinCount');
+    const copyCountElement = document.getElementById('copyCount');
+    
+    // Add pulse animation when counters change
+    const animateCounter = (element, newValue) => {
+        element.style.transform = 'scale(1.2)';
+        element.style.color = '#00b894';
+        element.textContent = newValue;
+        
+        setTimeout(() => {
+            element.style.transform = 'scale(1)';
+            element.style.color = '';
+        }, 200);
+    };
+    
+    // Update with animation
+    if (heartCountElement.textContent != heartCount) {
+        animateCounter(heartCountElement, heartCount);
+    } else {
+        heartCountElement.textContent = heartCount;
+    }
+    
+    if (coinCountElement.textContent != coinCount) {
+        animateCounter(coinCountElement, coinCount);
+    } else {
+        coinCountElement.textContent = coinCount;
+    }
+    
+    if (copyCountElement.textContent != copyCount) {
+        animateCounter(copyCountElement, copyCount);
+    } else {
+        copyCountElement.textContent = copyCount;
+    }
 }
 
 // Add some interactive animations on page load
 window.addEventListener('load', function() {
-    // Add subtle animations to cards on load
+    // Add staggered animations to cards on load
     const cards = document.querySelectorAll('.emergency-card');
     cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        
         setTimeout(() => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.5s ease';
-            
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 50);
-        }, index * 100);
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, (index * 100) + 300);
     });
+    
+    // Animate counter numbers on load
+    animateCounters();
 });
+
+// Animate counter numbers
+function animateCounters() {
+    const heartCounter = document.getElementById('heartCount');
+    const coinCounter = document.getElementById('coinCount');
+    const copyCounter = document.getElementById('copyCount');
+    
+    // Add a subtle pulse animation to counters when they change
+    [heartCounter, coinCounter, copyCounter].forEach(counter => {
+        counter.style.transition = 'all 0.3s ease';
+    });
+}
 
 // Handle responsive menu if needed (for future enhancement)
 function handleResponsiveDesign() {
