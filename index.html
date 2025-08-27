@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Hotline - সহজ সরল সিম্পল</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <img src="assets/logo.png" alt="Logo" class="logo">
+                <span class="website-name">Emergency Hotline</span>
+            </div>
+            <div class="nav-right">
+                <div class="nav-item">
+                    <img src="assets/heart.png" alt="Heart" class="nav-icon">
+                    <span id="heartCount">0</span>
+                </div>
+                <div class="nav-item">
+                    <img src="assets/coin.png" alt="Coin" class="nav-icon">
+                    <span id="coinCount">100</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-copy"></i>
+                    <span id="copyCount">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="assets/emergency.png" alt="Emergency Logo" class="hero-logo">
+            <h1 class="hero-title">জরুরি হটলাইন</h1>
+            <h2 class="hero-title-en">Emergency Hotline</h2>
+            <p class="hero-slogan">আপনার নিরাপত্তা, আমাদের অগ্রাধিকার</p>
+            <p class="hero-slogan-en">Your Safety, Our Priority</p>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="main-container">
+            <!-- Emergency Cards Section -->
+            <div class="cards-section">
+                <h2 class="section-title">জরুরি সেবা সমূহ</h2>
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- Cards will be generated dynamically -->
+                </div>
+            </div>
+
+            <!-- History Section -->
+            <div class="history-section">
+                <div class="history-header">
+                    <div class="history-title">
+                        <i class="fas fa-history"></i>
+                        <h3>Call History</h3>
+                    </div>
+                    <button class="clear-history-btn" id="clearHistoryBtn">
+                        <i class="fas fa-trash"></i>
+                        Clear History
+                    </button>
+                </div>
+                <div class="history-content" id="historyContent">
+                    <p class="no-history">No calls made yet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
