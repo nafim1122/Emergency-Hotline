@@ -12,7 +12,7 @@ const emergencyServices = [
         id: 2,
         name: "Police Helpline Number",
         nameEn: "Police",
-        number: "999",
+        number: "100",
         category: "Police",
         icon: "assets/police.png"
     },
@@ -20,7 +20,7 @@ const emergencyServices = [
         id: 3,
         name: "Fire Service Number",
         nameEn: "Fire Service",
-        number: "999",
+        number: "101",
         category: "Fire",
         icon: "assets/fire-service.png"
     },
@@ -28,7 +28,7 @@ const emergencyServices = [
         id: 4,
         name: "Ambulance Service",
         nameEn: "Ambulance",
-        number: "1994-999999",
+        number: "102",
         category: "Health",
         icon: "assets/ambulance.png"
     },
@@ -58,18 +58,18 @@ const emergencyServices = [
     },
     {
         id: 8,
-        name: "Brac Helpline",
-        nameEn: "Brac",
-        number: "16445",
-        category: "NGO",
+        name: "BRAC Emergency Helpline",
+        nameEn: "BRAC Emergency",
+        number: "16263",
+        category: "Emergency",
         icon: "assets/brac.png"
     },
     {
         id: 9,
-        name: "Bangladesh Railway Helpline",
-        nameEn: "Bangladesh Railway",
-        number: "163",
-        category: "Travel",
+        name: "Railway Police Helpline",
+        nameEn: "Railway Police",
+        number: "1717",
+        category: "Police",
         icon: "assets/Bangladesh-Railway.png"
     }
 ];
