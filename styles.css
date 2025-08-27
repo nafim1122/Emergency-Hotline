@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
     line-height: 1.6;
     color: #333;
 }
@@ -85,40 +85,50 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: #2d5a27;
+    background: #1a5d1a;
     padding: 3rem 2rem;
     text-align: center;
     color: white;
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+.bangladesh-emblem {
+    margin-bottom: 2rem;
 }
 
 .hero-logo {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    margin-bottom: 1.5rem;
     background: white;
     border-radius: 50%;
     padding: 1rem;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.hero-title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+.hero-title-bangla {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .hero-subtitle {
-    font-size: 1rem;
-    opacity: 0.9;
-    line-height: 1.5;
-    max-width: 600px;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    max-width: 700px;
     margin: 0 auto;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Section */
@@ -398,8 +408,8 @@ body {
         padding: 2rem 1rem;
     }
     
-    .hero-title {
-        font-size: 1.8rem;
+    .hero-title-bangla {
+        font-size: 2rem;
     }
     
     .hero-subtitle {
@@ -426,12 +436,12 @@ body {
 
 @media (max-width: 480px) {
     .hero-logo {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
     }
     
-    .hero-title {
-        font-size: 1.5rem;
+    .hero-title-bangla {
+        font-size: 1.8rem;
     }
     
     .hero-subtitle {
