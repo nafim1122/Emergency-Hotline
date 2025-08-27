@@ -44,12 +44,47 @@ A responsive web application providing quick access to emergency services in Ban
 
 ## 🎯 How to Use
 
-1. **Browse Services**: View all emergency services in the main section
-2. **Add to Favorites**: Click the heart icon on any service card
-3. **Copy Numbers**: Click "Copy" button to copy hotline number to clipboard
-4. **Make Calls**: Click "Call" button to simulate emergency calls (requires 20 coins)
-5. **View History**: Check call history in the right sidebar
-6. **Clear History**: Remove all call records with the clear button
+### 🔍 **Browse Services**
+**View all emergency services in the main section**
+- 📱 9 emergency services with visual cards and icons
+- 🎨 Responsive layout: 3-column (desktop), 2-column (tablet), 1-column (mobile)
+- 🔤 Service names in both Bengali and English
+
+### ❤️ **Add to Favorites** 
+**Click the heart icon on any service card**
+- 💖 Heart icon located in top-right corner of each card
+- ✨ Beautiful heartbeat animation with particle effects
+- 🔢 Heart counter updates in navigation bar
+- 🔄 Click again to toggle unlike
+
+### 📋 **Copy Numbers**
+**Click "Copy" button to copy hotline number to clipboard**
+- 📱 Blue copy button on each service card
+- 📋 Automatic clipboard integration with success feedback
+- ✅ Green toast notification confirms successful copy
+- 🔢 Copy counter tracks total operations
+
+### 📞 **Make Calls**
+**Click "Call" button to simulate emergency calls (requires 20 coins)**
+- 🟢 Green call button with phone icon
+- 🪙 Each call costs 20 coins (starts with 100 coins)
+- 💰 Automatic balance check prevents insufficient coin calls
+- ⏰ Real-time timestamp records exact call time
+- 💸 Coin balance updates immediately
+
+### 📚 **View History**
+**Check call history in the right sidebar**
+- 📖 Comprehensive call history panel
+- 🕐 Real-time timestamps for each emergency call
+- 📞 Service name and number details displayed
+- 📊 Chronological order (most recent first)
+- 📱 Responsive sidebar for all screen sizes
+
+### 🗑️ **Clear History**
+**Remove all call records with the clear button**
+- 🧹 "Clear History" button at top of history panel
+- 🔄 Instant clearing and panel update
+- 🆕 Fresh start for new tracking session
 
 ## 📚 Technical Questions & Answers
 
