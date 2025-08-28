@@ -48,11 +48,7 @@ body {
     width: 32px;
     height: 32px;
     object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.1);
+    border-radius: 50%;
 }
 
 .website-name {
@@ -176,16 +172,10 @@ body {
     width: 100px;
     height: 100px;
     object-fit: contain;
-    background: linear-gradient(45deg, #FFFFFF, #FEFEFE);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    padding: 1rem;
-    border: 3px solid #006747;
+    padding: 0.5rem;
     box-shadow: 0 4px 15px rgba(1, 50, 35, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.hero-logo:hover {
-    transform: scale(1.05) rotate(5deg);
 }
 
 .hero-title-bangla {
@@ -193,16 +183,12 @@ body {
     font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #FFFFFF;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    color: #FFFFFF !important;
     font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
     letter-spacing: 0.5px;
     animation: slideInDown 1s ease-out 0.2s both;
     text-align: center;
-    background: linear-gradient(45deg, #FFFFFF, #FEFEFE);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    /* Removed gradient text effect and shadow for clean white text */
 }
 
 .hero-subtitle {

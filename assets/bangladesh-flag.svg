@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Red circle background -->
+  <circle cx="200" cy="200" r="180" fill="#E53E3E" stroke="#C53030" stroke-width="2"/>
+  
+  <!-- Bangladesh map in yellow -->
+  <path d="M160 120 C180 115, 220 110, 250 125 C270 135, 285 160, 280 190 C275 220, 260 245, 240 260 C220 275, 200 285, 180 280 C160 275, 145 260, 140 240 C135 220, 140 200, 145 180 C150 160, 155 140, 160 120 Z M220 160 C235 155, 250 165, 255 180 C260 195, 250 210, 235 215 C220 220, 205 210, 200 195 C195 180, 205 165, 220 160 Z" fill="#FFD700"/>
+  
+  <!-- Stars around the circle -->
+  <g fill="#FFD700">
+    <!-- Top left star -->
+    <polygon points="80,140 85,150 95,150 87,157 90,167 80,160 70,167 73,157 65,150 75,150" transform="rotate(-20 80 155)"/>
+    
+    <!-- Top right star -->
+    <polygon points="320,140 325,150 335,150 327,157 330,167 320,160 310,167 313,157 305,150 315,150" transform="rotate(20 320 155)"/>
+    
+    <!-- Bottom left star -->
+    <polygon points="80,260 85,270 95,270 87,277 90,287 80,280 70,287 73,277 65,270 75,270" transform="rotate(-20 80 275)"/>
+    
+    <!-- Bottom right star -->
+    <polygon points="320,260 325,270 335,270 327,277 330,287 320,280 310,287 313,277 305,270 315,270" transform="rotate(20 320 275)"/>
+  </g>
+</svg>

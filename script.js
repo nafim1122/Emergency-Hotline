@@ -160,7 +160,8 @@ function setupEventListeners() {
     // Heart icon clicks
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('heart-icon')) {
-            handleHeartClick(e.target);
+            e.stopPropagation(); // Prevent event bubbling
+            handleHeartClick(e.target, e);
         }
     });
     
@@ -185,7 +186,12 @@ function setupEventListeners() {
 }
 
 // Handle heart icon clicks
-function handleHeartClick(heartIcon) {
+function handleHeartClick(heartIcon, event) {
+    // Prevent event bubbling to avoid triggering other actions
+    if (event) {
+        event.stopPropagation();
+    }
+    
     const serviceId = parseInt(heartIcon.dataset.serviceId);
     const service = emergencyServices.find(s => s.id === serviceId);
     
@@ -195,12 +201,11 @@ function handleHeartClick(heartIcon) {
     
     // Show brief feedback message
     if (heartIcon.classList.contains('liked')) {
-        // Increase heart count
+        // Increase heart count only
         heartCount++;
         // Give coins for liking a service (helps with copy/call costs)
         coinCount += 25; // Give 25 coins (enough for 1 copy or 1+ call)
-        copyCount++; // Still give copy credit as bonus
-        showToast(`❤️ Added ${service.nameEn} to favorites! (+25 coins, +1 copy credit)`, 'success');
+        showToast(`❤️ Added ${service.nameEn} to favorites! (+25 coins)`, 'success');
     } else {
         // Decrease heart count
         heartCount = Math.max(0, heartCount - 1);
