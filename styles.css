@@ -9,6 +9,7 @@ body {
     font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #f8f9fa;
 }
 
 /* Navbar Styles */
@@ -35,7 +36,8 @@ body {
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    justify-content: flex-start;
 }
 
 .logo {
@@ -54,6 +56,9 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     transition: color 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
 .website-name:hover {
@@ -119,12 +124,17 @@ body {
 
 /* Hero Section */
 .hero-section {
+    /* Background Gradient in the Whole Section */
     background: linear-gradient(135deg, #1a5d1a 0%, #2d5a27 50%, #1a5d1a 100%);
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     text-align: center;
     color: white;
     position: relative;
     overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-section::before {
@@ -144,10 +154,16 @@ body {
     position: relative;
     z-index: 2;
     animation: fadeInUp 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .bangladesh-emblem {
-    margin-bottom: 2rem;
+    /* Logo at top-center */
+    margin-bottom: 1rem;
     animation: pulse 2s infinite;
 }
 
@@ -168,17 +184,20 @@ body {
 }
 
 .hero-title-bangla {
+    /* Section Title in the center */
     font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
     letter-spacing: 0.5px;
     animation: slideInDown 1s ease-out 0.2s both;
+    text-align: center;
 }
 
 .hero-subtitle {
+    /* Slogan in the bottom center */
     font-size: 1.1rem;
     opacity: 0.95;
     line-height: 1.6;
@@ -187,6 +206,7 @@ body {
     font-weight: 400;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     animation: slideInUp 1s ease-out 0.4s both;
+    text-align: center;
 }
 
 /* Main Section */
@@ -381,10 +401,9 @@ body {
     color: white;
     border: none;
     padding: 0.4rem 0.8rem;
-    border-radius: 16px;
-    cursor: pointer;
-    font-weight: 500;
+    border-radius: 4px;
     font-size: 0.8rem;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
@@ -393,202 +412,131 @@ body {
 }
 
 .history-content {
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
 .history-item {
-    background: #f8f9fa;
-    border-radius: 6px;
-    padding: 0.8rem;
-    margin-bottom: 0.8rem;
-    border-left: 3px solid #00b894;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-.history-item h4 {
-    color: #333;
-    margin-bottom: 0.3rem;
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.history-details {
+    flex: 1;
+}
+
+.history-service-name {
     font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.history-item p {
-    color: #666;
-    margin-bottom: 0.2rem;
-    font-size: 0.8rem;
-}
-
-.history-item .call-time {
-    color: #00b894;
-    font-size: 0.75rem;
     font-weight: 500;
+    color: #333;
+    margin-bottom: 0.2rem;
+}
+
+.history-number {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.history-time {
+    font-size: 0.75rem;
+    color: #999;
 }
 
 .no-history {
     text-align: center;
     color: #999;
-    font-style: italic;
-    padding: 2rem 1rem;
+    padding: 1rem 0;
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
-/* Tablet: 768px-1199px (2-column card grid) */
-@media (max-width: 1199px) {
-    .main-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+/* Toast Notification */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    max-width: 80%;
+    text-align: center;
+}
+
+.toast-notification.show {
+    opacity: 1;
+}
+
+.toast-notification.success {
+    background: rgba(0, 184, 148, 0.9);
+}
+
+.toast-notification.error {
+    background: rgba(255, 71, 87, 0.9);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr); /* Tablet: 2-column layout */
-    }
-    
-    .history-section {
-        position: static;
-        max-width: none;
-        margin: 0 auto;
-    }
-    
-    .nav-container {
-        padding: 0 1.5rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Mobile: Below 768px (single column layout) */
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0 1rem;
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
-    
-    .nav-right {
-        gap: 1rem;
-    }
-    
-    .nav-item {
-        font-size: 0.8rem;
-    }
-    
-    .copy-counter {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.75rem;
-    }
-    
-    .website-name {
-        font-size: 1rem;
-    }
-    
-    .hero-section {
-        padding: 2rem 1rem;
-    }
-    
-    .hero-title-bangla {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-    
-    .main-container {
-        padding: 0 1rem;
-    }
-    
-    .cards-grid {
-        grid-template-columns: 1fr; /* Mobile: Single column layout */
-        gap: 1rem;
-    }
-    
-    .emergency-card {
-        padding: 1rem;
-    }
-    
-    .card-content h3 {
-        font-size: 1rem;
-    }
-    
-    .card-content .phone-number {
-        font-size: 1.3rem;
-    }
-    
-    .history-section {
-        padding: 1rem;
-    }
-    
-    .history-header {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: stretch;
-        text-align: center;
-    }
-    
-    .clear-history-btn {
-        align-self: center;
-        width: fit-content;
-        margin: 0 auto;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Small Mobile: Below 480px (optimized for small screens) */
-@media (max-width: 480px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    
-    .nav-left, .nav-right {
-        justify-content: center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-    
-    .hero-logo {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .hero-title-bangla {
-        font-size: 1.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.8rem;
-    }
-    
-    .card-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .card-button {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-    
-    .emergency-card {
-        padding: 0.8rem;
-    }
-    
-    .card-icon {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-/* Animation Classes */
-@keyframes heartBeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-}
-
-.heart-animation {
-    animation: heartBeat 0.6s ease-in-out;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .pulse-animation {
