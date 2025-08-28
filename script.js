@@ -90,11 +90,29 @@ const clearHistoryBtn = document.getElementById('clearHistoryBtn');
 const toastElement = document.getElementById('toast');
 
 // Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
-    renderEmergencyCards();
+// Reset to initial values function
+function resetToInitialValues() {
+    heartCount = 0;
+    coinCount = 100; 
+    copyCount = 0;
+    callHistory = [];
+    
     updateCounters();
+    renderCallHistory();
+    saveToLocalStorage();
+    
+    showToast('🔄 Reset to initial values!', 'success');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Reset to initial values on page load
+    resetToInitialValues();
+    
+    renderEmergencyCards();
     setupEventListeners();
-    loadFromLocalStorage();
+    
+    // Don't load from localStorage since we want initial values
+    // loadFromLocalStorage();
 });
 
 // Render emergency service cards
