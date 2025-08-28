@@ -77,7 +77,7 @@ const emergencyServices = [
 // Global variables
 let heartCount = 0;
 let coinCount = 100;
-let copyCount = 2; // Starting with 2 as shown in design
+let copyCount = 0; // Starting with 0 copies made
 let callHistory = [];
 
 // DOM elements
@@ -179,7 +179,10 @@ function handleHeartClick(heartIcon) {
     if (heartIcon.classList.contains('liked')) {
         // Increase heart count
         heartCount++;
-        showToast(`❤️ Added ${service.nameEn} to favorites!`, 'success');
+        // Give coins for liking a service (helps with copy/call costs)
+        coinCount += 25; // Give 25 coins (enough for 1 copy or 1+ call)
+        copyCount++; // Still give copy credit as bonus
+        showToast(`❤️ Added ${service.nameEn} to favorites! (+25 coins, +1 copy credit)`, 'success');
     } else {
         // Decrease heart count
         heartCount = Math.max(0, heartCount - 1);
@@ -223,39 +226,78 @@ function createHeartParticle(element) {
 
 // Handle copy button clicks
 function handleCopyClick(button) {
-    if (copyCount <= 0) {
-        showToast('You have no copy credits left!', 'error');
+    // Check if user has enough coins before attempting to copy
+    if (coinCount < 20) {
+        alert(`❌ Insufficient Coins!\n\nYou need at least 20 coins to copy a number.\nCurrent coins: ${coinCount}\n\nPlease like services (❤️) to earn more coins!`);
+        showToast('❌ Not enough coins to copy!', 'error');
         return;
     }
     
     const serviceId = parseInt(button.dataset.serviceId);
     const service = emergencyServices.find(s => s.id === serviceId);
     
-    // Copy number to clipboard
-    navigator.clipboard.writeText(service.number)
-        .then(() => {
-            // Decrease copy count
-            copyCount--;
-            
-            // Reward user with 5 coins for copying
-            coinCount += 5;
-            
-            updateCounters();
-            saveToLocalStorage();
-            
-            // Show feedback with coin reward
-            showToast(`📋 ${service.number} copied! (+5 coins earned)`, 'success');
-            
-            // Add animation to button
-            button.classList.add('copy-animation');
-            setTimeout(() => {
-                button.classList.remove('copy-animation');
-            }, 500);
-        })
-        .catch(err => {
-            showToast('Failed to copy number', 'error');
-            console.error('Could not copy text: ', err);
-        });
+    // Try modern clipboard API first, then fallback
+    if (navigator.clipboard && window.isSecureContext) {
+        // Modern clipboard API
+        navigator.clipboard.writeText(service.number)
+            .then(() => {
+                copySuccess(service, button);
+            })
+            .catch(err => {
+                copyFallback(service, button);
+            });
+    } else {
+        // Fallback for older browsers or non-HTTPS
+        copyFallback(service, button);
+    }
+}
+
+// Helper function for successful copy
+function copySuccess(service, button) {
+    // Deduct 20 coins for copying
+    coinCount -= 20;
+    
+    // Increase copy count display (shows total successful copies)
+    copyCount++;
+    
+    updateCounters();
+    saveToLocalStorage();
+    
+    // Show feedback with coin deduction
+    showToast(`📋 ${service.number} copied! (-20 coins)`, 'success');
+    
+    // Add animation to button
+    button.classList.add('copy-animation');
+    setTimeout(() => {
+        button.classList.remove('copy-animation');
+    }, 500);
+}
+
+// Fallback copy method
+function copyFallback(service, button) {
+    // Create a temporary textarea element
+    const textArea = document.createElement('textarea');
+    textArea.value = service.number;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            copySuccess(service, button);
+        } else {
+            showToast('❌ Failed to copy number', 'error');
+        }
+    } catch (err) {
+        showToast('❌ Copy not supported in this browser', 'error');
+        console.error('Copy failed: ', err);
+    }
+    
+    document.body.removeChild(textArea);
 }
 
 // Handle call button clicks
@@ -265,7 +307,7 @@ function handleCallClick(button) {
     
     // Check if user has enough coins (minimum 20 coins required)
     if (coinCount < 20) {
-        alert(`❌ Insufficient Coins!\n\nYou need at least 20 coins to make a call.\nCurrent coins: ${coinCount}\n\nPlease copy more numbers to earn coins!`);
+        alert(`❌ Insufficient Coins!\n\nYou need at least 20 coins to make a call.\nCurrent coins: ${coinCount}\n\nPlease like services (❤️) to earn coins!`);
         showToast('❌ Not enough coins to make call!', 'error');
         return; // Terminate the process
     }
@@ -391,7 +433,7 @@ function loadFromLocalStorage() {
         const data = JSON.parse(savedData);
         heartCount = data.heartCount || 0;
         coinCount = data.coinCount || 100;
-        copyCount = data.copyCount || 2;
+        copyCount = data.copyCount || 0;
         callHistory = data.callHistory || [];
         
         updateCounters();
