@@ -27,8 +27,9 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -152,8 +153,9 @@ body {
 }
 
 .hero-content {
-    max-width: 900px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     position: relative;
     z-index: 2;
     animation: fadeInUp 1s ease-out;
@@ -220,8 +222,9 @@ body {
 }
 
 .main-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -827,13 +830,11 @@ body {
         font-size: 1.1rem;
     }
     
-    /* Main Container */
+    /* Main Container - Full Width */
     .main-container {
         grid-template-columns: 2fr 1fr; /* 2:1 ratio for tablet */
         gap: 2rem;
         padding: 2rem;
-        max-width: 1000px;
-        margin: 0 auto;
     }
     
     .cards-grid {
@@ -849,7 +850,6 @@ body {
 /* Small Laptops (1025px - 1199px) */
 @media screen and (min-width: 1025px) and (max-width: 1199px) {
     .nav-container {
-        max-width: 1100px;
         padding: 0 2rem;
     }
     
@@ -872,10 +872,8 @@ body {
         font-size: 1.2rem;
     }
     
-    /* Main Container */
+    /* Main Container - Full Width */
     .main-container {
-        max-width: 1100px;
-        margin: 0 auto;
         grid-template-columns: 1fr 280px; /* Slightly smaller sidebar */
         gap: 2rem;
         padding: 2rem;
@@ -891,7 +889,6 @@ body {
 @media screen and (min-width: 1200px) {
     /* Full screen utilization for large screens */
     .nav-container {
-        max-width: 1400px;
         padding: 0 3rem;
     }
     
@@ -917,8 +914,6 @@ body {
     
     /* Main Container - Full Screen Layout */
     .main-container {
-        max-width: 1400px;
-        margin: 0 auto;
         grid-template-columns: 1fr 320px;
         gap: 3rem;
         padding: 3rem;
@@ -942,7 +937,6 @@ body {
 /* Ultra Wide Screens (1400px+) */
 @media screen and (min-width: 1400px) {
     .nav-container {
-        max-width: 1600px;
         padding: 0 4rem;
     }
     
@@ -952,7 +946,6 @@ body {
     }
     
     .main-container {
-        max-width: 1600px;
         grid-template-columns: 1fr 350px;
         gap: 4rem;
         padding: 4rem;
