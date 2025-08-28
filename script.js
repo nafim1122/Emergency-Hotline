@@ -236,11 +236,15 @@ function handleCopyClick(button) {
         .then(() => {
             // Decrease copy count
             copyCount--;
+            
+            // Reward user with 5 coins for copying
+            coinCount += 5;
+            
             updateCounters();
             saveToLocalStorage();
             
-            // Show feedback
-            showToast(`📋 ${service.number} copied to clipboard!`, 'success');
+            // Show feedback with coin reward
+            showToast(`📋 ${service.number} copied! (+5 coins earned)`, 'success');
             
             // Add animation to button
             button.classList.add('copy-animation');
@@ -259,11 +263,24 @@ function handleCallClick(button) {
     const serviceId = parseInt(button.dataset.serviceId);
     const service = emergencyServices.find(s => s.id === serviceId);
     
+    // Check if user has enough coins (minimum 20 coins required)
+    if (coinCount < 20) {
+        alert(`❌ Insufficient Coins!\n\nYou need at least 20 coins to make a call.\nCurrent coins: ${coinCount}\n\nPlease copy more numbers to earn coins!`);
+        showToast('❌ Not enough coins to make call!', 'error');
+        return; // Terminate the process
+    }
+    
+    // Show alert with service name and number
+    alert(`📞 Calling Emergency Service\n\nService: ${service.name}\nNumber: ${service.number}\n\nCall initiated successfully!\nCost: 20 coins`);
+    
+    // Deduct 20 coins for the call
+    coinCount -= 20;
+    
     // Add to call history
     addToCallHistory(service);
     
-    // Show feedback
-    showToast(`📞 Calling ${service.nameEn}...`, 'success');
+    // Show success feedback
+    showToast(`📞 Called ${service.nameEn} - 20 coins deducted`, 'success');
     
     // Add animation to button
     button.classList.add('call-animation');
@@ -271,8 +288,7 @@ function handleCallClick(button) {
         button.classList.remove('call-animation');
     }, 500);
     
-    // Increase coin count (reward for calling emergency services)
-    coinCount += 10;
+    // Update counters and save
     updateCounters();
     saveToLocalStorage();
 }
