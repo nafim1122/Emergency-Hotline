@@ -34,7 +34,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    transition: all 0.3s ease;
+    
 }
 
 .nav-left {
@@ -55,7 +55,7 @@ body {
     color: #333;
     font-size: 1.2rem;
     font-weight: 600;
-    transition: color 0.3s ease;
+    
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@ body {
     color: #333;
     font-weight: 500;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    
 }
 
 .nav-item:hover {
@@ -88,7 +88,7 @@ body {
 .heart-counter {
     color: #ff4757;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    
 }
 
 .heart-counter:hover {
@@ -99,7 +99,7 @@ body {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    
 }
 
 .nav-icon:hover {
@@ -112,7 +112,7 @@ body {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
-    transition: all 0.3s ease;
+    
     cursor: pointer;
 }
 
@@ -247,7 +247,7 @@ body {
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid #e0e0e0;
-    transition: all 0.3s ease;
+    
     position: relative;
 }
 
@@ -273,7 +273,7 @@ body {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    
     color: #ddd;
 }
 
@@ -330,7 +330,7 @@ body {
     font-weight: 500;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -404,7 +404,7 @@ body {
     border-radius: 4px;
     font-size: 0.8rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    
 }
 
 .clear-history-btn:hover {
@@ -475,7 +475,7 @@ body {
     font-size: 0.9rem;
     z-index: 1000;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    
     pointer-events: none;
     max-width: 80%;
     text-align: center;
@@ -1047,6 +1047,6 @@ html {
     * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        
     }
 }
