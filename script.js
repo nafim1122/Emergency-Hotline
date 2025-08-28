@@ -1,4 +1,4 @@
-// Emergency services data based on Figma design
+// Emergency services data matching exact Figma design
 const emergencyServices = [
     {
         id: 1,
@@ -51,25 +51,25 @@ const emergencyServices = [
     {
         id: 7,
         name: "Electricity Helpline",
-        nameEn: "Electricity Outage",
+        nameEn: "Electricity Outage", 
         number: "16216",
         category: "Electricity",
         icon: "assets/emergency.png"
     },
     {
         id: 8,
-        name: "BRAC Emergency Helpline",
-        nameEn: "BRAC Emergency",
-        number: "16263",
-        category: "Emergency",
-        icon: "assets/brac.png"
+        name: "Brac Helpline",
+        nameEn: "Brac",
+        number: "16445",
+        category: "NGO",
+        icon: "assets/emergency.png"
     },
     {
         id: 9,
-        name: "Railway Police Helpline",
-        nameEn: "Railway Police",
-        number: "1717",
-        category: "Police",
+        name: "Bangladesh Railway Helpline",
+        nameEn: "Bangladesh Railway",
+        number: "163",
+        category: "Travel",
         icon: "assets/Bangladesh-Railway.png"
     }
 ];
