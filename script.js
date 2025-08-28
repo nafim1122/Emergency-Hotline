@@ -201,11 +201,9 @@ function handleHeartClick(heartIcon, event) {
     
     // Show brief feedback message
     if (heartIcon.classList.contains('liked')) {
-        // Increase heart count only
+        // Increase heart count only - no coins given
         heartCount++;
-        // Give coins for liking a service (helps with copy/call costs)
-        coinCount += 25; // Give 25 coins (enough for 1 copy or 1+ call)
-        showToast(`❤️ Added ${service.nameEn} to favorites! (+25 coins)`, 'success');
+        showToast(`❤️ Added ${service.nameEn} to favorites!`, 'success');
     } else {
         // Decrease heart count
         heartCount = Math.max(0, heartCount - 1);
