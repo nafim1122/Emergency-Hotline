@@ -62,7 +62,7 @@ const emergencyServices = [
         nameEn: "Brac",
         number: "16445",
         category: "NGO",
-        icon: "assets/emergency.png"
+        icon: "assets/brac.png"
     },
     {
         id: 9,
