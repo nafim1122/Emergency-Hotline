@@ -284,6 +284,9 @@ function copySuccess(service, button) {
     updateCounters();
     saveToLocalStorage();
     
+    // Show alert for copy action
+    alert(`📋 Number Copied Successfully!\n\nService: ${service.name}\nNumber: ${service.number}\n\nCost: 20 coins\nRemaining coins: ${coinCount}\nTotal copies made: ${copyCount}`);
+    
     // Show feedback with coin deduction
     showToast(`📋 ${service.number} copied! (-20 coins)`, 'success');
     
